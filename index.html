@@ -9,7 +9,7 @@
         /* BASE STYLES */
         body {
             margin: 0;
-            font-family: Arial, sans-serif; /* Default Font */
+            font-family: Arial, sans-serif;
             background-color: #ffffff;
             color: #333333;
             position: relative;
@@ -79,14 +79,14 @@
             line-height: 1.6;
         }
 
-        /* MAIN VIDEO */
+        /* MAIN VIDEO & OVERLAY */
         .video-wrapper {
             position: relative;
             padding-bottom: 75%; /* 4:3 Aspect Ratio */
             height: 0;
             overflow: hidden;
             border-radius: 16px;
-            background: #f4f4f4;
+            background: #000000;
             margin: 20px 0 30px 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border: 1px solid #eaeaea;
@@ -99,6 +99,42 @@
             width: 100%;
             height: 100%;
             border: 0;
+        }
+
+        /* CUSTOM PLAY BUTTON OVERLAY */
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 16px;
+        }
+
+        .play-btn-custom {
+            background: linear-gradient(90deg, #9035d8, #ef6129);
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(239, 97, 41, 0.6);
+            animation: pulse 1.5s infinite;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* FAQ SECTION */
@@ -170,6 +206,10 @@
                 font-size: 15px;
                 margin-bottom: 20px;
             }
+            .play-btn-custom {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
             .section {
                 padding: 20px;
             }
@@ -198,7 +238,10 @@
         </div>
 
         <div class="video-wrapper">
-            <iframe src="https://player.vimeo.com/video/1200749664?controls=0&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Best Way To Make 30k to 40k Per Month in 2026"></iframe>
+            <div id="playOverlay" class="play-overlay">
+                <div class="play-btn-custom">▶ Click to Play with Sound</div>
+            </div>
+            <iframe id="vimeoPlayer" src="https://player.vimeo.com/video/1200749664?controls=0&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Best Way To Make 30k to 40k Per Month in 2026"></iframe>
         </div>
 
         <div class="section">
@@ -228,6 +271,21 @@
 </div>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var iframe = document.getElementById('vimeoPlayer');
+        var player = new Vimeo.Player(iframe);
+        var overlay = document.getElementById('playOverlay');
+
+        // Jab user overlay par click kare, toh play ho jaaye aur overlay hide ho jaaye
+        overlay.addEventListener('click', function() {
+            overlay.style.display = 'none'; // Overlay hatao
+            player.play().catch(function(error) {
+                console.log("Error playing video:", error);
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
