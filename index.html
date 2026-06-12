@@ -86,7 +86,8 @@
             height: 0;
             overflow: hidden;
             border-radius: 16px;
-            background: #000000;
+            /* CHANGED: Background from black to white */
+            background: #ffffff; 
             margin: 20px 0 30px 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border: 1px solid #eaeaea;
@@ -108,7 +109,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            /* Subtle dark overlay so button is visible against white bg if needed */
+            background: rgba(0, 0, 0, 0.2); 
             z-index: 10;
             display: flex;
             align-items: center;
@@ -233,7 +235,7 @@
         </div>
 
         <div class="subtitle">
-            Step-by-step beginner training built for students (19–29)  
+            Step-by-step beginner training built for students (16–30)  
             who want real online skill development without fake promises.
         </div>
 
@@ -277,9 +279,8 @@
         var player = new Vimeo.Player(iframe);
         var overlay = document.getElementById('playOverlay');
 
-        // Jab user overlay par click kare, toh play ho jaaye aur overlay hide ho jaaye
         overlay.addEventListener('click', function() {
-            overlay.style.display = 'none'; // Overlay hatao
+            overlay.style.display = 'none'; 
             player.play().catch(function(error) {
                 console.log("Error playing video:", error);
             });
