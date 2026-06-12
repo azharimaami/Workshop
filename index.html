@@ -15,7 +15,7 @@
             position: relative;
         }
 
-        /* GEOMETRIC GRID BACKGROUND (Kahi Kahi Visible, Thin & Close) */
+        /* GEOMETRIC GRID BACKGROUND */
         .grid-bg {
             position: fixed;
             top: 0;
@@ -24,12 +24,10 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            /* Grid Lines: Thinner and closer (15px) */
             background-image: 
                 linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
             background-size: 15px 15px;
-            /* Masking to make it patchy */
             -webkit-mask-image: radial-gradient(circle at 20% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 40%), 
                                 radial-gradient(circle at 80% 80%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
             mask-image: radial-gradient(circle at 20% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 40%), 
@@ -39,7 +37,7 @@
         .sales-body {
             padding: 40px 15px;
             position: relative;
-            z-index: 1; /* Keeps content above the grid */
+            z-index: 1;
         }
 
         .sales-container {
@@ -68,7 +66,6 @@
             line-height: 1.3;
         }
 
-        /* Gradient Text for Title */
         .title span {
             background: linear-gradient(90deg, #9035d8, #ef6129);
             -webkit-background-clip: text;
@@ -201,7 +198,7 @@
         </div>
 
         <div class="video-wrapper">
-            <iframe src="https://player.vimeo.com/video/1200749664?autoplay=1&controls=0&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Best Way To Make 30k to 40k Per Month in 2026"></iframe>
+            <iframe src="https://player.vimeo.com/video/1200749664?controls=0&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Best Way To Make 30k to 40k Per Month in 2026"></iframe>
         </div>
 
         <div class="section">
